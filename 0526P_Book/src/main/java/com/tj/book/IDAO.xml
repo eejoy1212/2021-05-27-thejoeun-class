@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-// mybatis.org//DTD Mapper 3.0 // EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.tj.book.Book_Inter"> 
+<insert id="input_save">
+INSERT INTO BOOKLIST VALUES(#{param1}, #{param2}, #{param3}, #{param4})
+</insert>
+
+<select id="list_out" resultType="com.tj.book.BookDTO">
+SELECT * FROM BOOKLIST ORDER BY BOOK
+</select>
+
+<select id="modifyView_out" resultType="com.tj.book.BookDTO">
+SELECT * FROM BOOKLIST WHERE BOOKNUM = #{param1}
+</select>
+
+<update id="modify">
+UPDATE BOOKLIST SET BOOK=#{param1}, AUTHOR=#{param2}, PRICE=#{param3} WHERE BOOKNUM=#{param4}
+</update>
+
+<delete id="delete">
+DELETE FROM BOOKLIST WHERE BOOKNUM = #{param1}
+</delete>
+
+
+</mapper>
